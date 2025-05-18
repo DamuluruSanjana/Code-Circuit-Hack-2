@@ -91,7 +91,7 @@ A modern hydration tracker built with **HTML, CSS, and JavaScript** that helps y
 ---
 
 
-🚀 **Live Demo:** https://code-circuit-hack-2-git-main-lakshmi-sanjana-ds-projects.vercel.app
+🚀 **Live Demo:**  https://code-circuit-hack-2-git-main-lakshmi-sanjana-ds-projects.vercel.app/login.html
 
 💧 **Stay Hydrated, Stay Productive!**
 ---
