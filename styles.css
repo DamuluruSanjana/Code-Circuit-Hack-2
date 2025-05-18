@@ -1,0 +1,1026 @@
+:root {
+    --primary-color: #2196F3;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --sidebar-width: 60px;
+    --sidebar-expanded-width: 250px;
+    --navbar-height: 60px;
+    --progress-bar-color: #19A7CE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--navbar-height);
+    background-color: var(--background-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logo {
+    height: 55px;
+    width: auto;
+}
+
+/* Mobile menu button */
+.mobile-menu-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+        margin-right: 15px;
+    }
+    
+    .nav-right {
+        gap: 15px;
+    }
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: var(--navbar-height);
+    bottom: 0;
+    width: var(--sidebar-width);
+    background-color: var(--background-color);
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 900;
+}
+
+.sidebar:hover {
+    width: var(--sidebar-expanded-width);
+}
+
+.sidebar-top, .sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-width: var(--sidebar-expanded-width);
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.sidebar-item:hover {
+    background-color: rgba(33, 150, 243, 0.1);
+}
+
+.sidebar-item.active {
+    background-color: rgba(33, 150, 243, 0.15);
+    border-left: 3px solid var(--primary-color);
+    padding-left: 17px;
+}
+
+.sidebar-item.active:hover {
+    background-color: rgba(33, 150, 243, 0.2);
+}
+
+.sidebar-item i, 
+.sidebar-item .sidebar-icon {
+    min-width: 24px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-item span {
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar:hover .sidebar-item span {
+    opacity: 1;
+}
+
+/* Main Content Styles */
+.main-content {
+    margin-left: calc(var(--sidebar-expanded-width) + 50px);
+    margin-right: 50px;
+    margin-top: calc(var(--navbar-height) + 5px);
+    padding: 0 20px;
+    max-width: 800px;
+    margin-inline: auto;
+    transition: margin-left 0.3s ease;
+}
+
+.goal-container {
+    text-align: left;
+    padding: 0;
+}
+
+.goal-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.goal-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.stats-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.goal-amount {
+    font-size: 16px;
+    color: #666;
+}
+
+.goal-percentage {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+/* Progress Bar Styles */
+.progress-container {
+    height: 8px;
+    background-color: #E8E8E8;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress-bar {
+    position: relative;
+    height: 20px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.progress-water {
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+    position: relative;
+}
+
+.goal-oz {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Unit Controls */
+.unit-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.daily-goal {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    white-space: nowrap;
+}
+
+/* Measurement Toggle */
+.measurement-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 20px;
+    background: #f5f5f5;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-unit {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    padding: 4px 8px;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+/* Add Water Button */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.add-water-btn {
+    flex: 1;
+    padding: 12px 24px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.add-water-btn:hover {
+    background-color: #333;
+}
+
+.reset-btn {
+    flex: 1;
+    padding: 12px 24px;
+    background-color:black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.reset-btn:hover {
+    background-color: #ff6961;
+}
+
+/* Reminder Section */
+.reminder-section {
+    margin-bottom: 40px;
+}
+
+.reminder-section h2,
+.community-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.reminder-item,
+.community-item {
+    margin-bottom: 20px;
+}
+
+.reminder-title,
+.community-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.reminder-subtitle,
+.community-subtitle {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Reminder Controls */
+.reminder-controls {
+    margin-top: 10px;
+}
+
+/* Custom Multi-select Styles */
+.custom-multiselect {
+    position: relative;
+    width: 100%;
+}
+
+.selected-days {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+    min-height: 38px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+}
+
+.selected-days .placeholder {
+    color: #666;
+}
+
+.selected-days .day-tag {
+    background-color: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.selected-days .day-tag .remove {
+    cursor: pointer;
+    font-size: 12px;
+    color: #666;
+}
+
+.days-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-top: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: none;
+    z-index: 1000;
+}
+
+.custom-multiselect.active .days-dropdown {
+    display: block;
+}
+
+.day-option {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.day-option:hover {
+    background-color: #f5f5f5;
+}
+
+.day-option input[type="checkbox"] {
+    margin: 0;
+}
+
+.day-option label {
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.reminder-type,
+.day-select,
+.time-select {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: black;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.reminder-type {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.reminder-type:focus,
+.day-select:focus,
+.time-select:focus {
+    outline: none;
+    border-color: black;
+}
+
+.day-select {
+    height: auto;
+    min-height: 120px;
+}
+
+.day-select option {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.day-select option:checked {
+    background-color: black;
+    color: white;
+}
+
+.reminder-time-option {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.reminder-custom-options {
+    margin-top: 10px;
+    display: none;
+}
+
+.reminder-custom-options.active {
+    display: block;
+}
+
+.time-select {
+    cursor: pointer;
+}
+
+/* Style for time input clear button and spinner */
+.time-select::-webkit-clear-button,
+.time-select::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Custom time input arrow */
+.time-select::-webkit-calendar-picker-indicator {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3ccircle cx='12' cy='12' r='10'%3e%3c/circle%3e%3cpolyline points='12 6 12 12 16 14'%3e%3c/polyline%3e%3c/svg%3e");
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+        width: var(--sidebar-expanded-width);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* Icon Styles */
+.nav-icon, .sidebar-icon {
+    font-size: 24px;
+    color: #000;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.sidebar-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    background: white;
+}
+
+.welcome-section h1 {
+    font-size: 1.6rem;
+    color: #333;
+    margin: 0;
+}
+
+.streak-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+}
+
+.streak-count {
+    font-size: 1.0rem;
+    font-weight: 500;
+    color: #000000;
+    background-color: #f5f5f5;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.streak-message {
+    color: #666;
+}
+
+/* Goal Section */
+.goal-section {
+    background: white;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.goal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.goal-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+}
+
+.streak-count {
+    font-size: 1.0rem;
+    font-weight: 500;
+    color: #000000;
+    background-color: #f5f5f5;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.goal-amount {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.goal-percentage {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color:black;
+}
+
+/* Progress Bar Styles */
+.progress-container {
+    height: 8px;
+    background-color: #E8E8E8;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: transparent;
+    position: relative;
+}
+
+.progress-water {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Progress Bar with Wave Animation */
+.progress-water {
+    position: relative;
+    overflow: hidden;
+}
+
+.water-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(0, 119, 255, 0.8),
+        rgba(0, 119, 255, 0.6),
+        rgba(0, 119, 255, 0.8)
+    );
+    transform-origin: 50% 50%;
+    animation: wave 3s linear infinite;
+}
+
+.water-wave::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    animation: wave-reverse 3s linear infinite;
+}
+
+@keyframes wave {
+    0% { transform: translateX(0) translateY(0) rotate(0); }
+    100% { transform: translateX(-50%) translateY(0) rotate(360deg); }
+}
+
+@keyframes wave-reverse {
+    0% { transform: translateX(0) rotate(0); }
+    100% { transform: translateX(50%) rotate(-360deg); }
+}
+
+/* Quick Add Section */
+.quick-add-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quick-add-section h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.quick-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.quick-add-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 1rem;
+    border: 2px solid #2196F3;
+    background: white;
+    color: #2196F3;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.quick-add-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.5s ease-out;
+}
+
+.quick-add-btn:active::after {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+}
+
+.quick-add-btn.custom {
+    border-style: dashed;
+}
+
+/* Reminder Section */
+.reminder-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reminder-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.reminder-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #333;
+}
+
+.add-reminder-btn {
+    padding: 0.5rem 1rem;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.reminder-cards {
+    display: grid;
+    gap: 1rem;
+}
+
+.reminder-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+}
+
+.reminder-time {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.time-input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.day-chips {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.day-chip {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.day-chip.active {
+    background: #000;
+    color: white;
+}
+
+.reminder-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.reminder-actions button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.reminder-actions button:hover {
+    color: #2196F3;
+}
+
+.delete-btn:hover {
+    color: #ff3b30;
+}
+
+/* Reminder Success Message */
+.reminder-success {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .quick-add-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .progress-container {
+        margin: 10px;
+    }
+    
+    .measurement-toggle {
+        margin: 10px auto;
+        display: block;
+    }
+}
+
+/* Measurement Toggle */
+.measurement-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.toggle-input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 20px;
+    background: #f5f5f5;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-unit {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    padding: 4px 8px;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.toggle-slider {
+    position: absolute;
+    left: 4px;
+    width: 32px;
+    height: 24px;
+    background-color: white;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-input:checked + .toggle-label .toggle-slider {
+    transform: translateX(40px);
+}
+
+.toggle-input:checked + .toggle-label .toggle-unit:last-child {
+    color: var(--primary-color);
+}
+
+.toggle-input:not(:checked) + .toggle-label .toggle-unit:first-child {
+    color: var(--primary-color);
+}
+
+/* Progress Bar Styles */
+.progress-container {
+    height: 8px;
+    background-color: #E8E8E8;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress-water {
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Premium Alert */
+.premium-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+.premium-alert.show {
+    display: block;
+}
+
+.premium-alert h3 {
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.premium-alert button {
+    padding: 0.5rem 1rem;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+} 

@@ -1,0 +1,240 @@
+.tracker-container {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.tracker-section, .daily-intake, .monthly-summary, .categories {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Daily Goal Styles */
+.daily-goal {
+    text-align: left;
+}
+
+.goal-content {
+    margin-top: 1rem;
+}
+
+.goal-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.goal-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.edit-btn:hover {
+    color: #2196F3;
+}
+
+.goal-edit {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.goal-input {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.set-goal-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Daily Intake Chart */
+.intake-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.intake-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 200px;
+    padding: 1rem 0;
+}
+
+.chart-bar {
+    width: 40px;
+    background: #2196F3;
+    border-radius: 4px;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: bottom;
+}
+
+.chart-bar::after {
+    content: attr(data-day);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.chart-bar:hover {
+    transform: scaleY(1.1);
+}
+
+/* Premium Feature Styles */
+.premium-feature {
+    position: relative;
+}
+
+.premium-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.premium-feature:hover .premium-overlay {
+    opacity: 1;
+}
+
+.upgrade-text {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Monthly Summary */
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.view-details-btn {
+    background: none;
+    border: none;
+    color: #2196F3;
+    cursor: pointer;
+}
+
+.summary-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.summary-chart {
+    height: 150px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Categories */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f5f5f5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-item:hover {
+    background: #e0e0e0;
+}
+
+.category-item i {
+    font-size: 1.5rem;
+    color: #2196F3;
+}
+
+/* Motivation Message */
+.motivation-message {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.message {
+    color: black;
+    font-size: 1.6rem;
+    font-weight: 500;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.message.fade {
+    opacity: 5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .tracker-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .tracker-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+} 

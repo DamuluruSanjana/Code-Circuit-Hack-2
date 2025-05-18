@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydrate - Stay Hydrated</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="Hydrate logo.png" alt="Hydrate Logo" class="logo">
+        </div>
+        <div class="nav-right">
+            <div class="profile-icon">
+                <img src="account.png" alt="Profile" class="profile-pic">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <a href="index.html" class="sidebar-item active">
+                <img src="target.png" alt="Daily Goal" class="sidebar-icon">
+                <span>Daily Goal</span>
+            </a>
+            <a href="tracker.html" class="sidebar-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Tracker Intake</span>
+            </a>
+
+
+           <a href="index.html" class="sidebar-item">
+    <i class="fas fa-bell"></i>
+    <span>Receive Notifications</span>
+</a>
+
+
+        </div>
+        <div class="sidebar-bottom">
+            <a href="settings.html" class="sidebar-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <div class="sidebar-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="goal-container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1>Welcome back, User!</h1>
+            </div>
+
+            <!-- Today's Goal Section -->
+            <div class="goal-section">
+                <div class="goal-header">
+                    <h2 class="goal-title">Today's Goal</h2>
+                    <span class="streak-count">5 days🔥</span>
+                </div>
+                <div class="goal-stats">
+                    <div class="stats-container">
+                        <span class="goal-percentage">0%</span>
+                    </div>
+                    <div class="unit-controls">
+                        <span class="daily-goal">6L Goal</span>
+                        <div class="measurement-toggle">
+                            <input type="checkbox" id="unitToggle" class="toggle-input">
+                            <label for="unitToggle" class="toggle-label">
+                                <span class="toggle-unit">L</span>
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-unit">ml</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-water" id="waterProgress">
+                        <div class="water-wave"></div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button class="add-water-btn">Add Water</button>
+                    <button class="reset-btn">Reset</button>
+                </div>
+            </div>
+
+            <!-- Reminder Section -->
+            <div class="reminder-section">
+                <div class="reminder-header">
+                    <h2><i class="fas fa-bell"></i> Daily Reminder</h2>
+                    <button class="add-reminder-btn"><i class="fas fa-plus"></i> Add Reminder</button>
+                </div>
+
+                <div class="reminder-cards">
+                    <div class="reminder-card">
+                        <div class="reminder-time">
+                            <input type="time" class="time-input" value="09:00">
+                            <div class="day-chips">
+                                <span class="day-chip">M</span>
+                                <span class="day-chip">T</span>
+                                <span class="day-chip">W</span>
+                                <span class="day-chip">T</span>
+                                <span class="day-chip">F</span>
+                                <span class="day-chip">S</span>
+                                <span class="day-chip">S</span>
+                            </div>
+                        </div>
+                        <div class="reminder-actions">
+                            <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Alert -->
+            <div class="premium-alert">
+                <h3>Upgrade to Premium</h3>
+                <p>Get unlimited reminders and more features by upgrading to our premium plan!</p>
+                <button onclick="this.parentElement.classList.remove('show')">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

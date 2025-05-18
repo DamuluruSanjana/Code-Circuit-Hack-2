@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydrate - Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="settings-styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="Hydrate logo.png" alt="Hydrate Logo" class="logo">
+        </div>
+        <div class="nav-right">
+            <div class="profile-icon">
+                <img src="account.png" alt="Profile" class="profile-pic">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <a href="index.html" class="sidebar-item">
+                <img src="target.png" alt="Daily Goal" class="sidebar-icon">
+                <span>Daily Goal</span>
+            </a>
+            <a href="tracker.html" class="sidebar-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Tracker Intake</span>
+            </a>
+           <a href="index.html" class="sidebar-item">
+    <i class="fas fa-bell"></i>
+    <span>Receive Notifications</span>
+</a>
+        </div>
+        <div class="sidebar-bottom">
+            <a href="settings.html" class="sidebar-item active">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <div class="sidebar-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="settings-container">
+            <h1>Settings</h1>
+
+            <!-- User Profile Section -->
+            <div class="settings-section">
+                <div class="settings-header">
+                    <i class="fas fa-user-circle"></i>
+                    <h2>User Profile</h2>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <img src="account.png" alt="Profile Picture" class="profile-picture">
+                        <div class="profile-details">
+                            <button class="edit-profile-btn">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Plan Section -->
+            <div class="settings-section">
+                <div class="settings-header">
+                    <i class="fas fa-crown"></i>
+                    <h2>Premium Plan</h2>
+                </div>
+                <div class="premium-content">
+                    <p>Unlock unlimited water tracking features and BMI calculator.</p>
+                    <button class="upgrade-btn">Upgrade Now</button>
+                </div>
+            </div>
+
+            <!-- Privacy & Security Section -->
+            <div class="settings-section">
+                <div class="settings-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <h2>Privacy & Security</h2>
+                </div>
+                <div class="privacy-content">
+                    <p>Control who can view your hydration progress.</p>
+                    <div class="privacy-controls">
+                        <button class="privacy-btn active">Public</button>
+                        <button class="privacy-btn">Private</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydrate - Tracker Intake</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tracker-styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="Hydrate logo.png" alt="Hydrate Logo" class="logo">
+        </div>
+        <div class="nav-right">
+            <div class="profile-icon">
+                <img src="account.png" alt="Profile" class="profile-pic">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <a href="index.html" class="sidebar-item">
+                <img src="target.png" alt="Daily Goal" class="sidebar-icon">
+                <span>Daily Goal</span>
+            </a>
+            <a href="tracker.html" class="sidebar-item active">
+                <i class="fas fa-chart-line"></i>
+                <span>Tracker Intake</span>
+            </a>
+            <a href="index.html" class="sidebar-item">
+    <i class="fas fa-bell"></i>
+    <span>Receive Notifications</span>
+</a>
+        </div>
+        <div class="sidebar-bottom">
+            <a href="settings.html" class="sidebar-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <div class="sidebar-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="tracker-container">
+            <div class="tracker-section">
+                <h2>Daily goal</h2>
+                <div class="goal-content">
+                        <div class="goal-display">
+                            <span class="goal-value">17 cups</span>
+                            <button class="edit-btn" title="Edit goal"><i class="fas fa-pencil-alt"></i></button>
+                        </div>
+                        <div class="goal-edit" style="display: none;">
+                            <input type="number" class="goal-input" min="1" max="20" value="8">
+                            <button class="set-goal-btn">Set goal</button>
+                        </div>
+                    </div>
+                    <div class="motivation-message">
+                        <p class="message">Keep going! <br> Every sip counts</p>
+                        </div>
+        </div>
+            
+
+
+            
+            <div class="daily-intake">
+                <div class="intake-header">
+                    <h2>Daily intake</h2>
+                    <span>5 cups</span>
+                </div>
+                <div class="intake-chart">
+                    <div class="chart-container">
+                        <div class="chart-bar" style="height: 60%;" data-day="Sun"></div>
+                        <div class="chart-bar" style="height: 75%;" data-day="Mon"></div>
+                        <div class="chart-bar" style="height: 45%;" data-day="Tue"></div>
+                        <div class="chart-bar" style="height: 90%;" data-day="Wed"></div>
+                        <div class="chart-bar" style="height: 65%;" data-day="Thu"></div>
+                        <div class="chart-bar" style="height: 80%;" data-day="Fri"></div>
+                        <div class="chart-bar" style="height: 70%;" data-day="Sat"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="monthly-summary premium-feature">
+                <div class="premium-overlay">
+                    <span class="upgrade-text">Upgrade to Premium Plan</span>
+                </div>
+                <div class="summary-header">
+                    <h2>Monthly summary</h2>
+                    <button class="view-details-btn">View details</button>
+                </div>
+                <div class="summary-value">$500.00</div>
+                <div class="summary-chart">
+                    <!-- Monthly trend line chart will be added with JavaScript -->
+                </div>
+            </div>
+
+            <div class="categories premium-feature">
+                <div class="premium-overlay">
+                    <span class="upgrade-text">Upgrade to Premium Plan</span>
+                </div>
+                <h2>Categories</h2>
+                <div class="category-grid">
+                    <div class="category-item">
+                        <i class="fas fa-utensils"></i>
+                        <span>Nutrition</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-tint"></i>
+                        <span>Hydration</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Diet</span>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Wellness</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

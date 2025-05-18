@@ -1,0 +1,153 @@
+.settings-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-container h1 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.settings-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.settings-header i {
+    font-size: 1.5rem;
+    color:black;
+}
+
+.settings-header h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* User Profile Styles */
+.profile-content {
+    padding: 1rem 0;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-details h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.edit-profile-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-profile-btn:hover {
+    background: #333;
+}
+
+/* Premium Plan Styles */
+.premium-content {
+    padding: 1rem 0;
+}
+
+.premium-content p {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.upgrade-btn {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.upgrade-btn:hover {
+    background: #1976D2;
+}
+
+/* Privacy & Security Styles */
+.privacy-content {
+    padding: 1rem 0;
+}
+
+.privacy-content p {
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.privacy-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.privacy-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #2196F3;
+    border-radius: 6px;
+    background: white;
+    color: #2196F3;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.privacy-btn.active {
+    background: #2196F3;
+    color: white;
+}
+
+.privacy-btn:hover {
+    background: #2196F3;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .settings-container {
+        padding: 1rem;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .privacy-controls {
+        flex-direction: column;
+    }
+
+    .privacy-btn {
+        width: 100%;
+    }
+} 
