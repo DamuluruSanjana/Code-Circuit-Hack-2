@@ -1,4 +1,4 @@
-# Code-Circuit-Hack-2
+# Code-Circuit-Hackathon Project-2
 # Hydrate - Smart Water Tracking Web App  
 
 A modern hydration tracker built with **HTML, CSS, and JavaScript** that helps you stay hydrated through daily goal tracking, reminders, and progress analytics.  
